@@ -2,8 +2,8 @@
   "name": "@wsh-2024/schema",
   "private": true,
   "dependencies": {
-    "drizzle-orm": "0.29.3",
-    "drizzle-zod": "0.5.1",
-    "zod": "3.22.4"
+    "drizzle-orm": "^0.29.3",
+    "drizzle-zod": "^0.5.1",
+    "zod": "^3.22.4"
   }
 }
