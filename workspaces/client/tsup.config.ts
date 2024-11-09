@@ -54,14 +54,10 @@ export default defineConfig(async (): Promise<Options[]> => {
         '.wasm': 'binary',
       },
       metafile: true,
-      minify: false,
       outDir: OUTPUT_DIR,
       platform: 'browser',
-      shims: true,
-      sourcemap: 'inline',
-      splitting: false,
-      target: ['chrome58', 'firefox57', 'safari11', 'edge18'],
-      treeshake: false,
+      sourcemap: process.env["NODE_ENV"] !== 'production',
+      target: ['chrome132'],
     },
   ];
 });

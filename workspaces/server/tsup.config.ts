@@ -22,14 +22,10 @@ export default defineConfig(async (): Promise<Options[]> => {
       },
       format: 'cjs',
       metafile: true,
-      minify: false,
       noExternal: [/@wsh-2024\/.*/],
       outDir: OUTPUT_DIR,
-      shims: true,
-      sourcemap: true,
-      splitting: false,
+      sourcemap: process.env["NODE_ENV"] !== 'production',
       target: 'node18',
-      treeshake: false,
     },
   ];
 });
