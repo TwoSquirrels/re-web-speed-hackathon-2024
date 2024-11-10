@@ -2,10 +2,10 @@ import _ from 'lodash';
 import moment from 'moment-timezone';
 import { useId } from 'react';
 
-import { BookCard } from '../../features/book/components/BookCard';
-import { FeatureCard } from '../../features/feature/components/FeatureCard';
+import { BookCard, SkeletonBookCard } from '../../features/book/components/BookCard';
+import { FeatureCard, SkeletonFeatureCard } from '../../features/feature/components/FeatureCard';
 import { useFeatureList } from '../../features/feature/hooks/useFeatureList';
-import { RankingCard } from '../../features/ranking/components/RankingCard';
+import { RankingCard, SkeletonRankingCard } from '../../features/ranking/components/RankingCard';
 import { useRankingList } from '../../features/ranking/hooks/useRankingList';
 import { useRelease } from '../../features/release/hooks/useRelease';
 import { Box } from '../../foundation/components/Box';
@@ -20,13 +20,11 @@ import { CoverSection } from './internal/CoverSection';
 const Feature: React.FC = () => {
   const { data: featureList } = useFeatureList({ query: {} });
 
-  return featureList.length === 0 ? (
-    <Spacer height={205.6} />
-  ) : (
+  return (
     <Flex align="stretch" direction="row" gap={Space * 2} justify="flex-start">
-      {_.map(featureList, (feature) => (
-        <FeatureCard key={feature.id} bookId={feature.book.id} />
-      ))}
+      {featureList.length === 0
+        ? Array.from({ length: 50 }, (_, index) => <SkeletonFeatureCard key={index} />)
+        : _.map(featureList, (feature) => <FeatureCard key={feature.id} bookId={feature.book.id} />)}
     </Flex>
   );
 };
@@ -34,13 +32,11 @@ const Feature: React.FC = () => {
 const Ranking: React.FC = () => {
   const { data: rankingList } = useRankingList({ query: {} });
 
-  return rankingList.length === 0 ? (
-    <Spacer height={Space * 480} />
-  ) : (
+  return (
     <Flex align="center" as="ul" direction="column" justify="center">
-      {_.map(rankingList, (ranking) => (
-        <RankingCard key={ranking.id} bookId={ranking.book.id} />
-      ))}
+      {rankingList.length === 0
+        ? Array.from({ length: 50 }, (_, index) => <SkeletonRankingCard key={index} />)
+        : _.map(rankingList, (ranking) => <RankingCard key={ranking.id} bookId={ranking.book.id} />)}
     </Flex>
   );
 };
@@ -49,13 +45,11 @@ const Release: React.FC = () => {
   const todayStr = getDayOfWeekStr(moment());
   const { data: release } = useRelease({ params: { dayOfWeek: todayStr } });
 
-  return !release.id ? (
-    <Spacer height={391.8} />
-  ) : (
+  return (
     <Flex align="stretch" direction="row" gap={Space * 2} justify="flex-start">
-      {_.map(release.books, (book) => (
-        <BookCard key={book.id} bookId={book.id} />
-      ))}
+      {release.id === ''
+        ? Array.from({ length: 50 }, (_, index) => <SkeletonBookCard key={index} />)
+        : _.map(release.books, (book) => <BookCard key={book.id} bookId={book.id} />)}
     </Flex>
   );
 };

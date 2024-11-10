@@ -12,9 +12,11 @@ import { useBook } from '../hooks/useBook';
 const _Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
+  width: 192px;
+  height: 242px;
   border-radius: ${Radius.SMALL};
   background-color: ${Color.MONO_A};
-  max-width: 192px;
+  flex-shrink: 0;
   border: 1px solid ${Color.MONO_30};
 `;
 
@@ -30,6 +32,15 @@ const _AvatarWrapper = styled.div`
   > img {
     border-radius: 50%;
   }
+`;
+
+const SkeletonBookCard = styled.div`
+  width: 192px;
+  height: 242px;
+  border-radius: ${Radius.SMALL};
+  background-color: ${Color.MONO_0};
+  flex-shrink: 0;
+  border: 1px solid ${Color.MONO_30};
 `;
 
 type Props = {
@@ -72,10 +83,10 @@ const BookCard: React.FC<Props> = ({ bookId }) => {
 
 const BookCardWithSuspense: React.FC<Props> = (props) => {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<SkeletonBookCard />}>
       <BookCard {...props} />
     </Suspense>
   );
 };
 
-export { BookCardWithSuspense as BookCard };
+export { BookCardWithSuspense as BookCard, SkeletonBookCard };

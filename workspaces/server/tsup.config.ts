@@ -24,7 +24,7 @@ export default defineConfig(async (): Promise<Options[]> => {
       metafile: true,
       noExternal: [/@wsh-2024\/.*/],
       outDir: OUTPUT_DIR,
-      sourcemap: process.env["NODE_ENV"] !== 'production',
+      sourcemap: process.env['NODE_ENV'] !== 'production',
       target: 'node18',
     },
   ];

@@ -2,6 +2,7 @@ import type * as CSS from 'csstype';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { apiClient } from '../../lib/api/apiClient';
 import type { Color, Typography } from '../styles/variables';
 
 const _Text = styled.span<{
@@ -46,9 +47,8 @@ export const Text: React.FC<Props> = ({
   useEffect(() => {
     (async () => {
       if (!src) return;
-      const response = await fetch(src);
-      if (!response.ok) throw new Error(response.statusText);
-      setText(<>{await response.text()}</>);
+      const response = await apiClient.get(src);
+      setText(<>{response.data}</>);
     })().catch(console.error);
   }, [src]);
 
