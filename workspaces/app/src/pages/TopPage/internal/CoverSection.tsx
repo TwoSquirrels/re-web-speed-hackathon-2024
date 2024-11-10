@@ -37,7 +37,7 @@ export const CoverSection: React.FC = () => {
         layout="fullWidth"
         loading="eager"
         objectFit="fill"
-        src="/assets/hero.png"
+        src="/assets/hero.webp"
       />
       <_SearchLink href="/search">
         <SvgIcon color={Color.MONO_A} height={24} type="Search" width={24} />
