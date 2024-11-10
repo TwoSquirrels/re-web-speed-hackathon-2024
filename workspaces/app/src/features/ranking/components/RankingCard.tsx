@@ -37,6 +37,13 @@ const _AvatarWrapper = styled.div`
   }
 `;
 
+const SkeletonRankingCard = styled.div`
+  width: 100%;
+  height: 155px;
+  background-color: ${Color.MONO_0};
+  flex-shrink: 0;
+`;
+
 type Props = {
   bookId: string;
 };
@@ -111,4 +118,4 @@ const RankingCardWithSuspense: React.FC<Props> = (props) => {
   );
 };
 
-export { RankingCardWithSuspense as RankingCard };
+export { RankingCardWithSuspense as RankingCard, SkeletonRankingCard };

@@ -12,6 +12,8 @@ import { useBook } from '../../book/hooks/useBook';
 const _Wrapper = styled(Link)`
   display: grid;
   gap: ${Space * 1}px;
+  width: 304px;
+  height: 180px;
   background-color: ${Color.MONO_A};
   padding: ${Space * 1.5}px;
   border-radius: ${Radius.SMALL};
@@ -41,6 +43,15 @@ const _AvatarWrapper = styled.div`
   > img {
     border-radius: 50%;
   }
+`;
+
+const SkeletonFeatureCard = styled.div`
+  width: 304px;
+  height: 180px;
+  background-color: ${Color.MONO_0};
+  border-radius: ${Radius.SMALL};
+  flex-shrink: 0;
+  border: 1px solid ${Color.MONO_30};
 `;
 
 type Props = {
@@ -92,4 +103,4 @@ const FeatureCardWithSuspense: React.FC<Props> = (props) => {
   );
 };
 
-export { FeatureCardWithSuspense as FeatureCard };
+export { FeatureCardWithSuspense as FeatureCard, SkeletonFeatureCard };
