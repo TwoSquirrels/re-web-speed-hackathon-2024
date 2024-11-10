@@ -8,6 +8,8 @@ import { defineConfig } from 'tsup';
 import type { Options } from 'tsup';
 
 export default defineConfig(async (): Promise<Options[]> => {
+  const NODE_ENV = process.env['NODE_ENV'] || 'development';
+
   const PACKAGE_DIR = (await findPackageDir(process.cwd()))!;
   const WORKSPACE_DIR = (await findWorkspaceDir(process.cwd()))!;
 
@@ -20,15 +22,12 @@ export default defineConfig(async (): Promise<Options[]> => {
     {
       bundle: true,
       clean: true,
+      define: { 'process.env.NODE_ENV': JSON.stringify(NODE_ENV) },
       entry: {
         client: path.resolve(PACKAGE_DIR, './src/index.tsx'),
         serviceworker: path.resolve(PACKAGE_DIR, './src/serviceworker/index.ts'),
       },
-      env: {
-        API_URL: '',
-        NODE_ENV: process.env['NODE_ENV'] || 'development',
-        PATH_LIST: IMAGE_PATH_LIST.join(',') || '',
-      },
+      env: { API_URL: '', NODE_ENV, PATH_LIST: IMAGE_PATH_LIST.join(',') || '' },
       esbuildOptions(options) {
         options.define = {
           ...options.define,
@@ -51,7 +50,7 @@ export default defineConfig(async (): Promise<Options[]> => {
       metafile: true,
       outDir: OUTPUT_DIR,
       platform: 'browser',
-      sourcemap: process.env['NODE_ENV'] !== 'production',
+      sourcemap: NODE_ENV !== 'production',
       target: ['chrome132'],
     },
   ];
