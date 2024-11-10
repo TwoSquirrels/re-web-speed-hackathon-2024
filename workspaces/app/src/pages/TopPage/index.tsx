@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { useId } from 'react';
 
 import { BookCard, SkeletonBookCard } from '../../features/book/components/BookCard';
@@ -23,7 +22,7 @@ const Feature: React.FC = () => {
     <Flex align="stretch" direction="row" gap={Space * 2} justify="flex-start">
       {featureList.length === 0
         ? Array.from({ length: 50 }, (_, index) => <SkeletonFeatureCard key={index} />)
-        : _.map(featureList, (feature) => <FeatureCard key={feature.id} bookId={feature.book.id} />)}
+        : featureList.map((feature) => <FeatureCard key={feature.id} bookId={feature.book.id} />)}
     </Flex>
   );
 };
@@ -35,7 +34,7 @@ const Ranking: React.FC = () => {
     <Flex align="center" as="ul" direction="column" justify="center">
       {rankingList.length === 0
         ? Array.from({ length: 50 }, (_, index) => <SkeletonRankingCard key={index} />)
-        : _.map(rankingList, (ranking) => <RankingCard key={ranking.id} bookId={ranking.book.id} />)}
+        : rankingList.map((ranking) => <RankingCard key={ranking.id} bookId={ranking.book.id} />)}
     </Flex>
   );
 };
@@ -48,7 +47,7 @@ const Release: React.FC = () => {
     <Flex align="stretch" direction="row" gap={Space * 2} justify="flex-start">
       {release.id === ''
         ? Array.from({ length: 50 }, (_, index) => <SkeletonBookCard key={index} />)
-        : _.map(release.books, (book) => <BookCard key={book.id} bookId={book.id} />)}
+        : release.books.map((book) => <BookCard key={book.id} bookId={book.id} />)}
     </Flex>
   );
 };
