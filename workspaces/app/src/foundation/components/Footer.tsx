@@ -3,11 +3,6 @@ import React, { useId } from 'react';
 import styled from 'styled-components';
 
 import { DialogContentAtom } from '../atoms/DialogContentAtom';
-import { COMPANY } from '../constants/Company';
-import { CONTACT } from '../constants/Contact';
-import { OVERVIEW } from '../constants/Overview';
-import { QUESTION } from '../constants/Question';
-import { TERM } from '../constants/Term';
 import { Color, Space, Typography } from '../styles/variables';
 
 import { Box } from './Box';
@@ -46,9 +41,7 @@ export const Footer: React.FC = () => {
           利用規約
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} typography={Typography.NORMAL12}>
-          {TERM}
-        </Text>
+        <Text as="p" color={Color.MONO_100} src="/assets/term.txt" typography={Typography.NORMAL12} />
       </_Content>,
     );
   };
@@ -60,9 +53,7 @@ export const Footer: React.FC = () => {
           お問い合わせ
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} typography={Typography.NORMAL12}>
-          {CONTACT}
-        </Text>
+        <Text as="p" color={Color.MONO_100} src="/assets/contact.txt" typography={Typography.NORMAL12} />
       </_Content>,
     );
   };
@@ -74,9 +65,7 @@ export const Footer: React.FC = () => {
           Q&A
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} typography={Typography.NORMAL12}>
-          {QUESTION}
-        </Text>
+        <Text as="p" color={Color.MONO_100} src="/assets/question.txt" typography={Typography.NORMAL12} />
       </_Content>,
     );
   };
@@ -88,9 +77,7 @@ export const Footer: React.FC = () => {
           運営会社
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} typography={Typography.NORMAL12}>
-          {COMPANY}
-        </Text>
+        <Text as="p" color={Color.MONO_100} src="/assets/company.txt" typography={Typography.NORMAL12} />
       </_Content>,
     );
   };
@@ -102,9 +89,7 @@ export const Footer: React.FC = () => {
           Cyber TOONとは
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} typography={Typography.NORMAL12}>
-          {OVERVIEW}
-        </Text>
+        <Text as="p" color={Color.MONO_100} src="/assets/overview.txt" typography={Typography.NORMAL12} />
       </_Content>,
     );
   };

@@ -1,5 +1,5 @@
 import type * as CSS from 'csstype';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import type { Color, Typography } from '../styles/variables';
@@ -20,11 +20,12 @@ const _Text = styled.span<{
 
 type Props = {
   as?: keyof JSX.IntrinsicElements;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   color: Color;
   flexGrow?: CSS.Property.FlexGrow;
   flexShrink?: CSS.Property.FlexShrink;
   id?: string;
+  src?: string;
   typography: Typography;
   weight?: 'bold' | 'normal';
 };
@@ -36,9 +37,21 @@ export const Text: React.FC<Props> = ({
   flexGrow,
   flexShrink,
   id,
+  src,
   typography,
   weight = 'normal',
 }) => {
+  const [text, setText] = useState<React.ReactNode>(children ?? <></>);
+
+  useEffect(() => {
+    (async () => {
+      if (!src) return;
+      const response = await fetch(src);
+      if (!response.ok) throw new Error(response.statusText);
+      setText(<>{await response.text()}</>);
+    })().catch(console.error);
+  }, [src]);
+
   return (
     <_Text
       $color={color}
@@ -49,7 +62,7 @@ export const Text: React.FC<Props> = ({
       as={as}
       id={id}
     >
-      {children}
+      {text}
     </_Text>
   );
 };
