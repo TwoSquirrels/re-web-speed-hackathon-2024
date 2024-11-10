@@ -47,7 +47,10 @@ export const Footer: React.FC = () => {
           color={Color.MONO_100}
           src={[0, 1, 2, 3, 4].map((i) => `/assets/term/${i}.txt`)}
           typography={Typography.NORMAL12}
-        />
+        >
+          {'\n罪と罰\nフョードル・ミハイロヴィッチ・ドストエフスキー\n米川正夫訳\n\n--------------------------------------------' +
+            '-----------\n【テキスト中に現れる記号について】\n\n《》：ルビ\n（例）臆病《おくびょう》\n\n｜：ルビの付く文字列の始まりを特定する記号\n（例）全然｜放'}
+        </Text>
       </_Content>,
     );
   };
@@ -64,7 +67,10 @@ export const Footer: React.FC = () => {
           color={Color.MONO_100}
           src={[0, 1, 2, 3].map((i) => `/assets/contact/${i}.txt`)}
           typography={Typography.NORMAL12}
-        />
+        >
+          {'\nパソコン創世記\n富田倫生\n\n-------------------------------------------------------\n【テキスト中に現れ' +
+            'る記号について】\n\n［＃］：入力者注\u{3000}主に外字の説明や、傍点の位置の指定\n\u{3000}\u{3000}\u{3000}（数字は、JIS X 0213の面区点番号またはUnicode、底本のページと行'}
+        </Text>
       </_Content>,
     );
   };
@@ -81,7 +87,10 @@ export const Footer: React.FC = () => {
           color={Color.MONO_100}
           src={[0, 1, 2, 3].map((i) => `/assets/question/${i}.txt`)}
           typography={Typography.NORMAL12}
-        />
+        >
+          {'\nドグラ・マグラ\n夢野久作\n\n-------------------------------------------------------\n【テキスト中に現れ' +
+            'る記号について】\n\n《》：ルビ\n（例）蜜蜂《みつばち》\n\n｜：ルビの付く文字列の始まりを特定する記号\n（例）大の字｜型《なり》に\n\n［＃］：入力者注　主に外字の'}
+        </Text>
       </_Content>,
     );
   };
@@ -98,7 +107,10 @@ export const Footer: React.FC = () => {
           color={Color.MONO_100}
           src={[0, 1, 2].map((i) => `/assets/company/${i}.txt`)}
           typography={Typography.NORMAL12}
-        />
+        >
+          {'\n吾輩は猫である\n夏目漱石\n\n-------------------------------------------------------\n【テキスト中に現れ' +
+            'る記号について】\n\n《》：ルビ\n（例）吾輩《わがはい》\n\n｜：ルビの付く文字列の始まりを特定する記号\n（例）一番｜獰悪《どうあく》\n\n［＃］：入力者注\u{3000}主に外字'}
+        </Text>
       </_Content>,
     );
   };
@@ -115,7 +127,10 @@ export const Footer: React.FC = () => {
           color={Color.MONO_100}
           src={[0, 1].map((i) => `/assets/overview/${i}.txt`)}
           typography={Typography.NORMAL12}
-        />
+        >
+          {'\nこころ\n夏目漱石\n\n-------------------------------------------------------\n【テキスト中に現れる記号に' +
+            'ついて】\n\n《》：ルビ\n（例）私《わたくし》は\n\n｜：ルビの付く文字列の始まりを特定する記号\n（例）先生一人｜麦藁帽《むぎわらぼう》を\n\n［＃］：入力者注\u{3000}主に'}
+        </Text>
       </_Content>,
     );
   };

@@ -49,7 +49,7 @@ export const Text: React.FC<Props> = ({
   useEffect(() => {
     (async () => {
       if (!src) return;
-      setChunks([]);
+      setChunks((prev) => prev.filter((chunk) => !chunk.id));
       for (const [i, source] of (Array.isArray(src) ? src : [src]).entries()) {
         const { data } = await apiClient.get(source);
         setChunks((prev) => {
