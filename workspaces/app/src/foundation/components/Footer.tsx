@@ -8,6 +8,7 @@ import { Color, Space, Typography } from '../styles/variables';
 import { Box } from './Box';
 import { Button } from './Button';
 import { Flex } from './Flex';
+import { Image } from './Image';
 import { Spacer } from './Spacer';
 import { Text } from './Text';
 
@@ -97,7 +98,7 @@ export const Footer: React.FC = () => {
   return (
     <Box as="footer" backgroundColor={Color.Background} p={Space * 1}>
       <Flex align="flex-start" direction="column" gap={Space * 1} justify="flex-start">
-        <img alt="Cyber TOON" src="/assets/cyber-toon.svg" />
+        <Image alt="Cyber TOON" height={45} src="/assets/cyber-toon.svg" width={189} />
         <Flex align="start" direction="row" gap={Space * 1.5} justify="center">
           <_Button disabled={!isClient} onClick={handleRequestToTermDialogOpen}>
             利用規約

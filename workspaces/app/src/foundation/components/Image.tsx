@@ -1,25 +1,7 @@
-import type * as CSS from 'csstype';
-import styled from 'styled-components';
+import * as Unpic from '@unpic/react';
 
-import { addUnitIfNeeded } from '../../lib/css/addUnitIfNeeded';
+type Props = Unpic.ImageProps;
 
-const _Image = styled.img<{
-  $height: number | string;
-  $objectFit: string;
-  $width: number | string;
-}>`
-  object-fit: ${({ $objectFit }) => $objectFit};
-  width: ${({ $width }) => addUnitIfNeeded($width)};
-  height: ${({ $height }) => addUnitIfNeeded($height)};
-  display: block;
-`;
-
-type Props = {
-  height: number | string;
-  objectFit: CSS.Property.ObjectFit;
-  width: number | string;
-} & JSX.IntrinsicElements['img'];
-
-export const Image: React.FC<Props> = ({ height, loading = 'eager', objectFit, width, ...rest }) => {
-  return <_Image {...rest} $height={height} $objectFit={objectFit} $width={width} loading={loading} />;
+export const Image: React.FC<Props> = ({ ...rest }) => {
+  return <Unpic.Image {...rest} />;
 };

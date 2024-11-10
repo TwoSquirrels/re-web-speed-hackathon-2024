@@ -114,6 +114,9 @@ importers:
       '@react-spring/web':
         specifier: ^9.7.3
         version: 9.7.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@unpic/react':
+        specifier: ^0.1.14
+        version: 0.1.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@wsh-2024/image-encrypt':
         specifier: workspace:*
         version: link:../image-encrypt
@@ -2347,6 +2350,19 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
+  '@unpic/core@0.0.49':
+    resolution: {integrity: sha512-tAqeJRMPF2TrZbSQe74OZ9O5DzKDDUoFwFbZUpjvLcgwGQ/8aleDCb2Iy3bHFJfzzYZ9iHN0hN1VpTlAGQd+ZA==}
+
+  '@unpic/react@0.1.14':
+    resolution: {integrity: sha512-jQ2qJkLMDQqQIQ8THf1c9YCMgZVO1JhPltdqteTVF9gjGqzgM81LiCG/VjH+EQiZNT3Lk7bPlf7Sc4h/q3VXAg==}
+    peerDependencies:
+      next: ^13.0.0 || ^14.0.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      next:
+        optional: true
+
   '@webcomponents/webcomponentsjs@2.8.0':
     resolution: {integrity: sha512-loGD63sacRzOzSJgQnB9ZAhaQGkN7wl2Zuw7tsphI5Isa0irijrRo6EnJii/GgjGefIFO8AIO7UivzRhFaEk9w==}
 
@@ -3421,6 +3437,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
@@ -3580,6 +3597,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -5276,6 +5294,9 @@ packages:
   unorm@1.6.0:
     resolution: {integrity: sha512-b2/KCUlYZUeA7JFUuRJZPUtr4gZvBh7tavtv4fvk4+KV9pfGiR6CQAQAWl49ZpR3ts2dk4FYkP7EIgDJoiOLDA==}
     engines: {node: '>= 0.4.0'}
+
+  unpic@3.19.0:
+    resolution: {integrity: sha512-WnSd9FMwzP7tSA/ytQj3Nbj2zY/9vh+frWF95RLDsTVZJXNN/9OlckbKiUKCTqf/6tIV0df4zX9tJu1NzeKv7Q==}
 
   update-browserslist-db@1.0.13:
     resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
@@ -7559,6 +7580,16 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
 
   '@ungap/structured-clone@1.2.0': {}
+
+  '@unpic/core@0.0.49':
+    dependencies:
+      unpic: 3.19.0
+
+  '@unpic/react@0.1.14(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@unpic/core': 0.0.49
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   '@webcomponents/webcomponentsjs@2.8.0': {}
 
@@ -10860,6 +10891,8 @@ snapshots:
   universalify@0.2.0: {}
 
   unorm@1.6.0: {}
+
+  unpic@3.19.0: {}
 
   update-browserslist-db@1.0.13(browserslist@4.23.0):
     dependencies:
