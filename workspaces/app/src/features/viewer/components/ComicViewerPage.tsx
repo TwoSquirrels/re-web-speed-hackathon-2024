@@ -22,7 +22,10 @@ export const ComicViewerPage = ({ pageImageId }: Props) => {
 
   useAsync(async () => {
     const image = new Image();
-    image.src = getImageUrl({ imageId: pageImageId });
+    image.src = getImageUrl({
+      format: 'jxl',
+      imageId: pageImageId,
+    });
     await image.decode();
 
     const canvas = ref.current!;

@@ -14,7 +14,10 @@ export const ComicPageImage: React.FC<Props> = ({ pageImageId }) => {
   const { data: blob } = useQuery({
     queryFn: async ({ queryKey: [, { pageImageId }] }) => {
       const image = new Image();
-      image.src = getImageUrl({ imageId: pageImageId });
+      image.src = getImageUrl({
+        format: 'jxl',
+        imageId: pageImageId,
+      });
       await image.decode();
 
       const canvas = document.createElement('canvas');
