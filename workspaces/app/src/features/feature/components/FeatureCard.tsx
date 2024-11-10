@@ -97,7 +97,7 @@ const FeatureCard: React.FC<Props> = ({ bookId }) => {
 
 const FeatureCardWithSuspense: React.FC<Props> = (props) => {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<SkeletonFeatureCard />}>
       <FeatureCard {...props} />
     </Suspense>
   );

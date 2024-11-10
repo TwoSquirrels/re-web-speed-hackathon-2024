@@ -51,7 +51,7 @@ export default defineConfig(async (): Promise<Options[]> => {
       metafile: true,
       outDir: OUTPUT_DIR,
       platform: 'browser',
-      sourcemap: process.env["NODE_ENV"] !== 'production',
+      sourcemap: process.env['NODE_ENV'] !== 'production',
       target: ['chrome132'],
     },
   ];
