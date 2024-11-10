@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import moment from 'moment-timezone';
 import { useId } from 'react';
 
 import { BookCard, SkeletonBookCard } from '../../features/book/components/BookCard';
@@ -42,7 +41,7 @@ const Ranking: React.FC = () => {
 };
 
 const Release: React.FC = () => {
-  const todayStr = getDayOfWeekStr(moment());
+  const todayStr = getDayOfWeekStr(new Date());
   const { data: release } = useRelease({ params: { dayOfWeek: todayStr } });
 
   return (
