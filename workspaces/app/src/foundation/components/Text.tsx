@@ -26,7 +26,7 @@ type Props = {
   flexGrow?: CSS.Property.FlexGrow;
   flexShrink?: CSS.Property.FlexShrink;
   id?: string;
-  src?: string;
+  src?: string | string[];
   typography: Typography;
   weight?: 'bold' | 'normal';
 };
@@ -42,13 +42,22 @@ export const Text: React.FC<Props> = ({
   typography,
   weight = 'normal',
 }) => {
-  const [text, setText] = useState<React.ReactNode>(children ?? <></>);
+  const [chunks, setChunks] = useState<{ id: string; Text: React.ReactNode }[]>(
+    children ? [{ id: '', Text: children }] : [],
+  );
 
   useEffect(() => {
     (async () => {
       if (!src) return;
-      const response = await apiClient.get(src);
-      setText(<>{response.data}</>);
+      setChunks([]);
+      for (const [i, source] of (Array.isArray(src) ? src : [src]).entries()) {
+        const { data } = await apiClient.get(source);
+        setChunks((prev) => {
+          const next = [...prev];
+          next[i] = { id: source, Text: data };
+          return next;
+        });
+      }
     })().catch(console.error);
   }, [src]);
 
@@ -62,7 +71,9 @@ export const Text: React.FC<Props> = ({
       as={as}
       id={id}
     >
-      {text}
+      {chunks.map(({ id, Text }) => (
+        <React.Fragment key={id}>{Text}</React.Fragment>
+      ))}
     </_Text>
   );
 };

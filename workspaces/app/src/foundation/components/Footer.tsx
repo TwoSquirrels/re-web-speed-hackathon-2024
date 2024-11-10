@@ -42,7 +42,12 @@ export const Footer: React.FC = () => {
           利用規約
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} src="/assets/term.txt" typography={Typography.NORMAL12} />
+        <Text
+          as="p"
+          color={Color.MONO_100}
+          src={[0, 1, 2, 3, 4].map((i) => `/assets/term/${i}.txt`)}
+          typography={Typography.NORMAL12}
+        />
       </_Content>,
     );
   };
@@ -54,7 +59,12 @@ export const Footer: React.FC = () => {
           お問い合わせ
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} src="/assets/contact.txt" typography={Typography.NORMAL12} />
+        <Text
+          as="p"
+          color={Color.MONO_100}
+          src={[0, 1, 2, 3].map((i) => `/assets/contact/${i}.txt`)}
+          typography={Typography.NORMAL12}
+        />
       </_Content>,
     );
   };
@@ -66,7 +76,12 @@ export const Footer: React.FC = () => {
           Q&A
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} src="/assets/question.txt" typography={Typography.NORMAL12} />
+        <Text
+          as="p"
+          color={Color.MONO_100}
+          src={[0, 1, 2, 3].map((i) => `/assets/question/${i}.txt`)}
+          typography={Typography.NORMAL12}
+        />
       </_Content>,
     );
   };
@@ -78,7 +93,12 @@ export const Footer: React.FC = () => {
           運営会社
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} src="/assets/company.txt" typography={Typography.NORMAL12} />
+        <Text
+          as="p"
+          color={Color.MONO_100}
+          src={[0, 1, 2].map((i) => `/assets/company/${i}.txt`)}
+          typography={Typography.NORMAL12}
+        />
       </_Content>,
     );
   };
@@ -90,7 +110,12 @@ export const Footer: React.FC = () => {
           Cyber TOONとは
         </Text>
         <Spacer height={Space * 1} />
-        <Text as="p" color={Color.MONO_100} src="/assets/overview.txt" typography={Typography.NORMAL12} />
+        <Text
+          as="p"
+          color={Color.MONO_100}
+          src={[0, 1].map((i) => `/assets/overview/${i}.txt`)}
+          typography={Typography.NORMAL12}
+        />
       </_Content>,
     );
   };
